@@ -4,7 +4,6 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Addtocart from "@/app/components/Addtocart";
 import fetchData from "@/sanity/lib/fetchData";
-import { Products } from "../../../../../sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 
 export default async function page({ params }: { params: { product: string } }) {
