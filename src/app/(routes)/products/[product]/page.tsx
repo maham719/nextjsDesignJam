@@ -4,7 +4,6 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Addtocart from "@/app/components/Addtocart";
 import fetchData from "@/sanity/lib/fetchData";
-import { Products } from "../../../../../sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 
 export default async function page({ params }: { params: { product: string } }) {
@@ -44,6 +43,7 @@ export default async function page({ params }: { params: { product: string } }) 
           <div className="w-[151px] h-[95%]  flex flex-col gap-2 overflow-hidden">
           {product.images.map((item: any, index: number) => (
             <div className="w-full h-[33%] " key={product.id}>   <img   src={urlFor(item.asset?._ref).url()} alt="" /></div>
+
         ))}
           </div>
           <div className="w-[375px] h-[95%]  flex items-center content-center  justify-center">
