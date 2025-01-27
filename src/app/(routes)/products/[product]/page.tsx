@@ -7,6 +7,10 @@ import fetchData from "@/sanity/lib/fetchData";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { Products } from "../../../../../sanity.types";
+type Tags = {
+  [key: string]: boolean | Tags;
+};
+
 
 export default async function page({ params }: { params: { product: string } }) {
   const data = await fetchData();
@@ -18,7 +22,7 @@ export default async function page({ params }: { params: { product: string } }) 
     return <div>Product not found</div>;
   }
 
-  const getTrueTags = (tags: any, prefix = ""): string[] => {
+  const getTrueTags = (tags: Tags, prefix = ""): string[] => {
     const trueTags: string[] = [];
     Object.keys(tags).forEach((key) => {
       const value = tags[key];
