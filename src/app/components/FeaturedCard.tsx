@@ -55,7 +55,7 @@ export default function FeaturedCard() {
         renderBullet: (index, className) => {
         
           if (index < 4) {
-            return `<span class="${className} custom-bullet"></span>`;
+            return `<span className="${className} custom-bullet"></span>`;
           }
           return "";
         },
@@ -66,7 +66,7 @@ export default function FeaturedCard() {
         { products.map((items:Products)=>{
           return (
           <SwiperSlide key={items._id} className='flex '>
-<Link href={`/products/ ${items.slug?.current}`} >
+
             <div className='flex items-center gap-4 mx-auto ml-5'>
             <div className='min-w-[270px] w-[270px] h-[400px]   featured'>
       <div className="w-[270px] h-[270px] overflow-hidden bg-[#F6F7FB]  rounded-xl relative card content-center relativer">
@@ -76,7 +76,7 @@ export default function FeaturedCard() {
       <div className='flex items-center justify-center h-[200px] w-full'>
       <img src={urlFor(items.images![0]!.asset!._ref!).url()} alt=""  className='mx-auto w-56 '/>
       </div>
-      <ViewDetails slug={items.slug?.current || ''} />
+      <Link href={`/products/ ${items.slug?.current}`} >  <ViewDetails /> </Link>
       </div>
 
       <div className='bottom flex flex-col gap-2 items-center justify-center w-[100%] h-[33%]  py-8'><h2 className="font-[700] text-lg text-[#FB2E86] white text-center">
@@ -96,7 +96,7 @@ export default function FeaturedCard() {
   </div>
     </div>
             </div>
-            </Link>
+      
           </SwiperSlide>
 )})}
       </Swiper>

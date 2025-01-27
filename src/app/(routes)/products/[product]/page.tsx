@@ -5,10 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Addtocart from "@/app/components/Addtocart";
 import fetchData from "@/sanity/lib/fetchData";
 import { urlFor } from "@/sanity/lib/image";
+import Image from "next/image";
 
 export default async function page({ params }: { params: { product: string } }) {
   const data = await fetchData();
-  const decodedSlug = decodeURIComponent(params.product).trim().toLowerCase();
+  const decodedSlug = await decodeURIComponent(params.product).trim().toLowerCase();
   const filterData = data.filter((item: any) => item?.slug?.current === decodedSlug);
   
 
@@ -42,12 +43,13 @@ export default async function page({ params }: { params: { product: string } }) 
       
           <div className="w-[151px] h-[95%]  flex flex-col gap-2 overflow-hidden">
           {product.images.map((item: any, index: number) => (
-            <div className="w-full h-[33%] " key={product.id}>   <img   src={urlFor(item.asset?._ref).url()} alt="" /></div>
-
+            <div className="w-full h-[33%] " key={product._name}> 
+<Image src={urlFor(item.asset?._ref).url()} alt="" width={151} height={470}></Image>
+</div>
         ))}
           </div>
-          <div className="w-[375px] h-[95%]  flex items-center content-center  justify-center">
-            <img src={urlFor(product.images![0]!.asset!._ref!).url()} alt="" className="" />
+          <div className="w-[375px] h-[95%]  flex items-center content-center  justify-center" key={product.id}>
+            <Image src={urlFor(product.images![0]!.asset!._ref!).url()} width={250} height={300} alt={""}></Image>
           </div>
         </div>
 
@@ -81,7 +83,7 @@ export default async function page({ params }: { params: { product: string } }) 
           <span className="text-[#151875] flex flex-col gap-5">
             <span className="flex gap-2">
               <h2>Categories :</h2>
-              <p> <p></p></p>
+              <p> </p>
             </span>
             <span className="flex gap-2">
               <h3>Tags :</h3>
