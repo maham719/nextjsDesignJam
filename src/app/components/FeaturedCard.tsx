@@ -26,7 +26,6 @@ export default function FeaturedCard() {
        const data= await client.fetch(`*[_type == "products" && tags.featured == true] `); 
        setProducts(data);
      }
-     console.log(products)
  
      fetchData();
    }, []);
