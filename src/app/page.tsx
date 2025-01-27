@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Button from "./components/Button";
 import Featured from "./components/Featured";
-import FeaturedCard from "./components/FeaturedCard";
 
 export default function Home() {
   return (
