@@ -58,7 +58,7 @@ export default async function page() {
 {/* product card  */}
 return (
   <Link href={`/products/${product.slug?.current}`}>
- <div className="min-w-[270px] w-[270px] h-[363px]">
+ <div className="min-w-[270px] w-[270px] h-[363px]" key={product._id}>
 <div className="w-[250px] h-[280px] overflow-hidden bg-[#F6F7FB]  hover:bg-[#EBF4F3] relative card content-center">
   <span className="absolute left-2 -translate-x-96 top-40 opacity-0 side-icons">
       <li className="list-none rounded-full text-[#151875] hover:bg-white text-center leading-8 px-2"><i className="ri-shopping-cart-line"></i></li>
