@@ -6,11 +6,12 @@ import Addtocart from "@/app/components/Addtocart";
 import fetchData from "@/sanity/lib/fetchData";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
+import { Products } from "../../../../../sanity.types";
 
 export default async function page({ params }: { params: { product: string } }) {
   const data = await fetchData();
   const decodedSlug = await decodeURIComponent(params.product).trim().toLowerCase();
-  const filterData = data.filter((item: any) => item?.slug?.current === decodedSlug);
+  const filterData = data.filter((item: Products) => item?.slug?.current === decodedSlug);
   
 
   if (filterData.length === 0) {
@@ -42,7 +43,7 @@ export default async function page({ params }: { params: { product: string } }) 
         <div className="h-[487px] flex gap-2 items-center">
       
           <div className="w-[151px] h-[95%]  flex flex-col gap-2 overflow-hidden">
-          {product.images.map((item: any, index: number) => (
+          {product.images.map((item: any) => (
             <div className="w-full h-[33%] " key={product._name}> 
 <Image src={urlFor(item.asset?._ref).url()} alt="" width={151} height={470}></Image>
 </div>

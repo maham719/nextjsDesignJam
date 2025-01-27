@@ -64,9 +64,9 @@ export default function FeaturedCard() {
       >
         { products.map((items:Products)=>{
           return (
-          <SwiperSlide key={items._id} className='flex '>
+          <SwiperSlide key={items._id} className='flex ' >
 
-            <div className='flex items-center gap-4 mx-auto ml-5'>
+            <div className='flex items-center gap-4 mx-auto ml-5 ' key={items._id}>
             <div className='min-w-[270px] w-[270px] h-[400px]   featured'>
       <div className="w-[270px] h-[270px] overflow-hidden bg-[#F6F7FB]  rounded-xl relative card content-center relativer">
         <span className='absolute left-1 flex top-3 -translate-x-44 top-icons'>  <li className="list-none rounded-full cursor-pointer text-[#179BF5] hover:bg-[#EEEFFB] text-center hover:text-[#2F1AC4] leading-8 px-2"><i className="ri-shopping-cart-line"></i></li>
