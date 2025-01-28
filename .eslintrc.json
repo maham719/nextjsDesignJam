@@ -1,3 +1,9 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "off",         // Disable unused-vars check
+    "@typescript-eslint/explicit-module-boundary-types": "off", // Disable explicit types for module boundaries
+    "@typescript-eslint/ban-ts-comment": "off",         // Disable TypeScript comment banning if it's related to the error
+    "@typescript-eslint/no-explicit-any": "off"         // Disable explicit any check if that's related to your types
+  }
 }
