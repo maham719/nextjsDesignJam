@@ -2,13 +2,14 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebookF, faSquareInstagram, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import Image from 'next/image';
 export default function Footer() {
   return (
     <div className='bg-[#EEEFFB] font-sans footer mt-20 '>
      <footer className='min-h-[479px] flex items-center gap-8 mx-auto w-4/5 font-sans'>
         {/* first col of footer  */}
         <div className='flex flex-col   gap-6 px-9 w-[377px] first'>
-            <img src="/logo.png" alt=""  className='w-28 h-8' />
+          <Image src={'/logo.png'} alt={''} width={112} height={32}></Image>
             {/* search bar   */}
         <div className="flex overflow-hidden max-w-md mx-auto font-[sans-serif] w-full">
         <input type="email" placeholder="Enter Email Address"
