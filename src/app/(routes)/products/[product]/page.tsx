@@ -46,6 +46,7 @@ type SanityImageCrop = {
 };
 
 export default async function page({ params }: Props ) {
+  const { product } = params;
   const data = await fetchData();
   const decodedSlug = await decodeURIComponent(params.product).trim().toLowerCase();
   const filterData = data.filter((item: Products) => item?.slug?.current === decodedSlug);
@@ -68,8 +69,8 @@ export default async function page({ params }: Props ) {
     return trueTags;
   };
 
-  const product = filterData[0];
-  const trueTags = product.tags ? getTrueTags(product.tags) : [];
+  const singleProduct = filterData[0];
+  const trueTags = singleProduct.tags ? getTrueTags(singleProduct.tags) : [];
 
   return (
     <div>
@@ -80,20 +81,20 @@ export default async function page({ params }: Props ) {
         <div className="h-[487px] flex gap-2 items-center">
       
           <div className="w-[151px] h-[95%]  flex flex-col gap-2 overflow-hidden">
-          {product.images.map((item: SanityImage) => (
-            <div className="w-full h-[33%] " key={product._name}> 
+          {singleProduct.images.map((item: SanityImage) => (
+            <div className="w-full h-[33%] " key={singleProduct._name}> 
 <Image src={urlFor(item.asset?._ref).url()} alt="" width={151} height={470}></Image>
 </div>
         ))}
           </div>
-          <div className="w-[375px] h-[95%]  flex items-center content-center  justify-center" key={product.id}>
-            <Image src={urlFor(product.images![0]!.asset!._ref!).url()} width={250} height={300} alt={""}></Image>
+          <div className="w-[375px] h-[95%]  flex items-center content-center  justify-center" key={singleProduct.id}>
+            <Image src={urlFor(singleProduct.images![0]!.asset!._ref!).url()} width={250} height={300} alt={""}></Image>
           </div>
         </div>
 
         {/* Content div */}
         <div className="min-w[610px] w-[610px] h-[80%] px-4 py-2 flex flex-col gap-2">
-          <h1 className="text-[#0D134E] text-3xl">{product.name}</h1>
+          <h1 className="text-[#0D134E] text-3xl">{singleProduct.name}</h1>
           <p className="flex items-center gap-2">
             <span className="text-[#FFC416] flex items-center gap-2 text-sm">
               <FontAwesomeIcon icon={faStar} />
@@ -106,8 +107,8 @@ export default async function page({ params }: Props ) {
           </p>
 
           <span className="flex items-center gap-4">
-            <p className="text-[#151875]">${product.price}</p>
-            <p className="text-[#FB2E86] line-through">${product.oldPrice}</p>
+            <p className="text-[#151875]">${singleProduct.price}</p>
+            <p className="text-[#FB2E86] line-through">${singleProduct.oldPrice}</p>
           </span>
           <span className="text-[#151875]">Color</span>
           <p className="text-[#A9ACC6] text-sm">
