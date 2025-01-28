@@ -7,6 +7,7 @@ import fetchData from "@/sanity/lib/fetchData";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { Products } from "../../../../../sanity.types";
+import { use } from "react"; 
 type Props = {
   params: {
     product: string;
@@ -45,13 +46,14 @@ type SanityImageCrop = {
   right: number;
 };
 
-export default async function page({ params }: Props ) {
+export default async function Page({ params }: { params: { product: string } }) {
   const { product } = params;
   const data = await fetchData();
-  const decodedSlug = decodeURIComponent(product).trim().toLowerCase();
-  const filterData = data.filter((item: Products) => item?.slug?.current === decodedSlug);
-  
 
+  const decodedSlug = decodeURIComponent(product).trim().toLowerCase();
+  const filterData = data.filter(
+    (item: Products) => item?.slug?.current === decodedSlug
+  );
   if (filterData.length === 0) {
     return <div>Product not found</div>;
   }
