@@ -14,7 +14,8 @@ export default function Contact() {
       <div className='w-3/6 h-full flex flex-col gap-4 px-2'>
       <h2  className='text-4xl font-bold text-[#151875]'>Information About us</h2>
       <p className='text-[#8A8FB9]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis neque ultrices mattis aliquam, malesuada diam est. Malesuada sem tristique amet erat vitae eget dolor lobortis. Accumsan faucibus vitae lobortis quis bibendum quam.</p>
-      <img src="/contact1.png" alt=""  className='w-20'/></div>
+      <Image src={'/contact1.png'} alt={''} width={103} height={25}></Image>
+      </div>
 
  {/* second col main  */}
       <div className='w-3/6 h-ful  flex flex-col gap-4 px-3 '>
