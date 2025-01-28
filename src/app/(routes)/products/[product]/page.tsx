@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import React from "react";
+
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -41,11 +40,10 @@ type SanityImageCrop = {
   left: number;
   right: number;
 };
+const data = await fetchData();
 
-export default async function Page({ params }: { params: { product: string } }) // eslint-disable-line @typescript-eslint/no-unused-vars 
-{
+export default function Page({ params }: { params: { product: string } }) {
   const { product } = params;
-  const data = await fetchData();
 
   const decodedSlug = decodeURIComponent(product).trim().toLowerCase();
   const filterData = data.filter(
