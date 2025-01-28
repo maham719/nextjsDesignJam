@@ -7,12 +7,6 @@ import fetchData from "@/sanity/lib/fetchData";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { Products } from "../../../../../sanity.types";
-import { use } from "react"; 
-type Props = {
-  params: {
-    product: string;
-  };
-};
 
 type Tags = {
   [key: string]: boolean | Tags;
