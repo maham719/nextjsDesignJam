@@ -1,18 +1,15 @@
-// import React from 'react'
+import React from 'react';
+import { useSearchParams } from 'next/navigation'; // For app directory
 
-//  async function SearchPage({
-//   searchParams,
-//  } : {
-//     searchParams:{
-//         query : string;
-//     };
-//  }) {
-//     const {query } = await searchParams
-//   return (
-//     <div>
-//       search page for {query }
-//     </div>
-//   )
-// }
+const SearchPage = () => {
+  const searchParams = useSearchParams();
+  const query = searchParams.get('query') || ''; // Get the query param
 
-// export default SearchPage
+  return (
+    <div>
+      Search page for: {query}
+    </div>
+  );
+};
+
+export default SearchPage;
