@@ -57,7 +57,7 @@ export default async function page() {
 {data.reverse().map((product:Products)=>{
 {/* product card  */}
 return (
-  <Link href={`/products/${product.slug?.current}`}>
+  <Link href={`/products/${product.slug?.current}`} key={product._id}>
  <div className="min-w-[270px] w-[270px] h-[363px]" key={product._id}>
 <div className="w-[250px] h-[280px] overflow-hidden bg-[#F6F7FB]  hover:bg-[#EBF4F3] relative card content-center">
   <span className="absolute left-2 -translate-x-96 top-40 opacity-0 side-icons">
