@@ -1,3 +1,4 @@
+"yse client"
 import React from 'react';
 import { useSearchParams } from 'next/navigation'; // For app directory
 
