@@ -7,6 +7,11 @@ import fetchData from "@/sanity/lib/fetchData";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { Products } from "../../../../../sanity.types";
+type Props = {
+  params: {
+    product: string;
+  };
+};
 
 type Tags = {
   [key: string]: boolean | Tags;
@@ -40,7 +45,7 @@ type SanityImageCrop = {
   right: number;
 };
 
-export default async function page({ params }: { params: { product: string } }) {
+export default async function page({ params }: Props ) {
   const data = await fetchData();
   const decodedSlug = await decodeURIComponent(params.product).trim().toLowerCase();
   const filterData = data.filter((item: Products) => item?.slug?.current === decodedSlug);
