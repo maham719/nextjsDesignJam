@@ -55,6 +55,7 @@ export default function FeaturedCard() {
       pagination={{
         clickable: true,
         el: ".swiper-pagination", 
+      
       }}
       modules={[FreeMode,Pagination]}
       className='max-w-full  lg:max-w-[94%] flex gap-2 min-h-[500px] items-center relative mx-auto justify-center bg-transparent ' 
