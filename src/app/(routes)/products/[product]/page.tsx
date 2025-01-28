@@ -48,7 +48,7 @@ type SanityImageCrop = {
 export default async function page({ params }: Props ) {
   const { product } = params;
   const data = await fetchData();
-  const decodedSlug = await decodeURIComponent(params.product).trim().toLowerCase();
+  const decodedSlug = decodeURIComponent(product).trim().toLowerCase();
   const filterData = data.filter((item: Products) => item?.slug?.current === decodedSlug);
   
 
