@@ -30,8 +30,12 @@ export default function FeaturedCard() {
      fetchData();
    }, []);
   return (
+    <div className='w-full min-h-[500px] h-[600px] mx-auto mt-28 relative   '>
+      <h1 className='text-4xl font-bold text-center mb-8'>Featured Products </h1>
 
-    <div className='w-full'>
+  
+    
+    
       <Swiper breakpoints={{
         340:{
           slidesPerView:2,
@@ -51,13 +55,13 @@ export default function FeaturedCard() {
       pagination={{
         clickable: true,
         el: ".swiper-pagination", 
-        renderBullet: (index, className) => {
+        // renderBullet: (index, className) => {
         
-          if (index < 4) {
-            return `<span className="${className} custom-bullet"></span>`;
-          }
-          return "";
-        },
+        //   if (index < 4) {
+        //     return `<span className="${className} custom-bullet"></span>`;
+        //   }
+        //   return "";
+        // },
       }}
       modules={[FreeMode,Pagination]}
       className='max-w-full  lg:max-w-[94%] flex gap-2 min-h-[500px] items-center relative mx-auto justify-center bg-transparent ' 
@@ -99,9 +103,10 @@ export default function FeaturedCard() {
           </SwiperSlide>
 )})}
       </Swiper>
-  
       <div className="swiper-pagination absolute  "></div>
-    </div>
+  
+      
+      </div>
 
   )
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Button from "./components/Button";
-import Featured from "./components/Featured";
 import Image from "next/image";
+import FeaturedCard from "./components/FeaturedCard";
 export default function Home() {
   return (
     <>
@@ -38,7 +38,7 @@ export default function Home() {
           <li className="diamond"></li>
           <li className="diamond"></li>
         </ul>
-    <Featured/>
+    <FeaturedCard/>
     </>
   );
 }
