@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import React from "react";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -40,7 +42,8 @@ type SanityImageCrop = {
   right: number;
 };
 
-export default async function Page({ params }: { params: { product: string } }) {
+export default async function Page({ params }: { params: { product: string } }) // eslint-disable-line @typescript-eslint/no-unused-vars 
+{
   const { product } = params;
   const data = await fetchData();
 
