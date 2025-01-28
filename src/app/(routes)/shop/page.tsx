@@ -7,6 +7,7 @@ import { Products } from "../../../../sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 import Brands from "../../components/Brands";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function page() {
    const data =await fetchData();
@@ -44,8 +45,9 @@ export default async function page() {
               <option value="Best Match ">Lowest To Highest </option>
               <option value="Best Match ">Highest To Lowest </option>
             </select>
-            <p>View </p> <img src="/grid.png" alt="" />{" "}
-            <img src="list.png" alt="" />
+            <p>View </p> 
+            <Image src={"/grid.png"} alt={""} width={12} height={12}></Image>
+            <Image src={"/list.png"} alt={""} width={12} height={12}></Image>
             <input type="text" className="border" />
           </span>
         </div>

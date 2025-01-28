@@ -75,7 +75,7 @@ export default function FeaturedCard() {
       <div className='flex items-center justify-center h-[200px] w-full'>
       <img src={urlFor(items.images![0]!.asset!._ref!).url()} alt=""  className='mx-auto w-56 '/>
       </div>
-      <Link href={`/products/ ${items.slug?.current}`} >  <ViewDetails /> </Link>
+      <Link href={`/products/ ${items.slug?.current}`} >  <ViewDetails key={items._id} /> </Link>
       </div>
 
       <div className='bottom flex flex-col gap-2 items-center justify-center w-[100%] h-[33%]  py-8'><h2 className="font-[700] text-lg text-[#FB2E86] white text-center">

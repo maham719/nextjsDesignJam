@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   return (
@@ -20,7 +21,8 @@ export default function Header() {
             <FontAwesomeIcon icon={faEnvelope} /> mhhasanul@gmail.com
           </p>
           <span className="flex items-center gap-3">
-            <img src="/Vector.png" alt="" /> (12345)67890
+            <Image src={"/Vector.png"} alt={""} width={14} height={14}></Image>
+             (12345)67890
           </span>
         </div>
 
@@ -55,16 +57,15 @@ export default function Header() {
               Wishlist <FontAwesomeIcon icon={faHeart} />
             </li>
           </ul>
-
-          <img src="/cart.png" alt="" className="ml-7 cursor-pointer" />
+        <Image src={"/cart.png"} alt={""} width={24} height={24} className="cursor-pointer"></Image>
         </div>
       </div>
 
       <div className="min-h-20 bg-white w-full flex items-center">
         <div className="min-h-10 w-[71%] m-auto flex justify-between gap-80 ">
-          <div className="flex  gap-12">
-            <img src="/logo.png" alt="" className="h-8 cursor-pointer" />
-            <ul className="flex items-center gap-5 leading-5 menu">
+          <div className="flex  gap-12 items-center">
+            <Image src={"/logo.png"} alt={""} width={105} height={31} className="cursor-pointer"></Image>
+            <ul className="flex items-center pt-4 gap-5 leading-5 menu">
               <Link href={"/"}><li>Home</li></Link>
               <li className="parent-item">
                 Pages

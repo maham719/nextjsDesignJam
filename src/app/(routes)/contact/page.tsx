@@ -1,6 +1,7 @@
 import React from 'react'
 import Breadcrumb from '../../components/Breadcrumb'
 import Button from '../../components/Button'
+import Image from 'next/image'
 
 export default function Contact() {
   return (
@@ -88,7 +89,7 @@ export default function Contact() {
      </div>
 
      <div className='w-[55%] h-[692px]'>
-<img src="/contact2.png" alt="" />
+      <Image src={'/contact2.png'} alt={''} width={732} height={732}></Image>
      </div>
 
       </div>

@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Button from "./components/Button";
 import Featured from "./components/Featured";
-
+import Image from "next/image";
 export default function Home() {
   return (
     <>
       <div className="min-h-[550px] w-full bg-[#F2F0FF] flex relative mb-8" >
         <div>
-          <img src="/image32.png" alt="" />
+          <Image src={"/image32.png"} alt={""} width={387} height={387}></Image>
         </div>
 
         <div className="flex items-center gap-3">
@@ -28,7 +28,7 @@ export default function Home() {
           </div>
 
           <div className="w-[706px]">
-            <img src="/sofabanner.png" alt="" className="w-[28rem]" />
+            <Image src={"/sofabanner.png"} alt={""} width={448} height={706}></Image>
           </div>
         </div>
       
