@@ -1,5 +1,5 @@
 import React from "react";
-
+import { use } from "react";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,10 +40,10 @@ type SanityImageCrop = {
   left: number;
   right: number;
 };
-const data = await fetchData();
 
-export default function Page({ params }: { params: { product: string } }) {
-  const { product } = params;
+export default async function Page({ params }: { params:  Promise<{product: string }> }) {
+  const data = await fetchData();
+  const { product } = use(params);
 
   const decodedSlug = decodeURIComponent(product).trim().toLowerCase();
   const filterData = data.filter(
