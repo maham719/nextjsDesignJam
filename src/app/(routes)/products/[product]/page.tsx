@@ -10,7 +10,34 @@ import { Products } from "../../../../../sanity.types";
 type Tags = {
   [key: string]: boolean | Tags;
 };
+type ImageAsset = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+};
 
+type SanityImage = {
+  asset: ImageAsset;
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  alt?: string;
+  _type: "image";
+  _key: string;
+};
+
+type SanityImageHotspot = {
+  x: number;
+  y: number;
+  height: number;
+  width: number;
+};
+
+type SanityImageCrop = {
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+};
 
 export default async function page({ params }: { params: { product: string } }) {
   const data = await fetchData();
@@ -47,7 +74,7 @@ export default async function page({ params }: { params: { product: string } }) 
         <div className="h-[487px] flex gap-2 items-center">
       
           <div className="w-[151px] h-[95%]  flex flex-col gap-2 overflow-hidden">
-          {product.images.map((item: any) => (
+          {product.images.map((item: SanityImage) => (
             <div className="w-full h-[33%] " key={product._name}> 
 <Image src={urlFor(item.asset?._ref).url()} alt="" width={151} height={470}></Image>
 </div>
