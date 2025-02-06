@@ -12,16 +12,22 @@ import { urlFor } from '@/sanity/lib/image';
 import { Products } from '../../../sanity.types';
 import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
+import Featuredicons from './Featuredicons';
 
-// interface Product {
-//   products:Products[],
-// }
 export default function FeaturedCard() {
-  onst [isClient, setIsClient] = useState(false);
+
+
+  const [isClient, setIsClient] = useState(false);
+
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+
+
+
+
    const [products, setProducts] = useState<Products[]>([]);
 
    useEffect(() => {
@@ -32,8 +38,10 @@ export default function FeaturedCard() {
  
      fetchData();
    }, []);
+  if (!isClient) return null; // Avoid SSR rendering issues
+
   return (
-    <div className='w-full min-h-[500px] h-[600px] mx-auto mt-28 relative   '>
+    <div className='w-full min-h-[500px] h-[600px] mx-auto mt-28 relative  featured-card '>
       <h1 className='text-4xl font-bold text-center mb-8'>Featured Products </h1>
 
   
@@ -57,11 +65,12 @@ export default function FeaturedCard() {
       grabCursor={true}
       pagination={{
         clickable: true,
-        el: ".swiper-pagination", 
+        el: ".featured-swiper-pagination", 
+
       
       }}
       modules={[FreeMode,Pagination]}
-      className='max-w-full  lg:max-w-[94%] flex gap-2 min-h-[500px] items-center relative mx-auto justify-center bg-transparent ' 
+      className='max-w-full  lg:max-w-[94%] flex gap-2 min-h-[500px] items-center relative mx-auto justify-center bg-transparent featured-card ' 
       >
         { products.map((items:Products)=>{
           return (
@@ -69,10 +78,8 @@ export default function FeaturedCard() {
 
             <div className='flex items-center gap-4 mx-auto ml-5 ' key={items._id}>
             <div className='min-w-[270px] w-[270px] h-[400px]   featured'>
-      <div className="w-[270px] h-[270px] overflow-hidden bg-[#F6F7FB]  rounded-xl relative card content-center relativer">
-        <span className='absolute left-1 flex top-3 -translate-x-44 top-icons'>  <li className="list-none rounded-full cursor-pointer text-[#179BF5] hover:bg-[#EEEFFB] text-center hover:text-[#2F1AC4] leading-8 px-2"><i className="ri-shopping-cart-line"></i></li>
-      <li className="list-none cursor-pointer   rounded-full text-[#179BF5] hover:bg-[#EEEFFB] text-center hover:text-[#2F1AC4] leading-8 px-2"><i className="ri-zoom-in-line"></i></li>
-      <li className="list-none  cursor-pointer rounded-full text-[#179BF5] hover:bg-[#EEEFFB] text-center hover:text-[#2F1AC4] leading-8 px-2"><i className="ri-heart-line"></i></li></span>
+      <div className="w-[270px] h-[270px] overflow-hidden bg-[#F6F7FB]  rounded-xl relative card content-center ">
+       <Featuredicons id={items._id} name={items.name} price={items.price} image={urlFor(items.images![0]!.asset!._ref!).url()}/>
       <div className='flex items-center justify-center h-[200px] w-full'>
       <img src={urlFor(items.images![0]!.asset!._ref!).url()} alt=""  className='mx-auto w-56 '/>
       </div>
@@ -100,7 +107,7 @@ export default function FeaturedCard() {
           </SwiperSlide>
 )})}
       </Swiper>
-      <div className="swiper-pagination absolute  "></div>
+      <div className="featured-swiper-pagination swiper-pagination  absolute  "></div>
   
       
       </div>

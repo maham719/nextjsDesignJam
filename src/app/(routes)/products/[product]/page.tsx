@@ -1,3 +1,4 @@
+
 import React from "react";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -113,7 +114,10 @@ export default async function Page({ params }: { params:  Promise<{product: stri
             Natus hic ab consequuntur laboriosam dolores optio quaerat dolor,
             quos corporis omnis.
           </p>
-          <Addtocart />
+          <Addtocart    id={singleProduct._id}
+          name={singleProduct.name}
+          price={singleProduct.price}
+          image={urlFor(singleProduct.images![0]!.asset!._ref!).url()}/>
 
           <span className="text-[#151875] flex flex-col gap-5">
             <span className="flex gap-2">

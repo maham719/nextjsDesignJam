@@ -1,6 +1,7 @@
 "use client";
-
 import React from "react";
+import { useAuth } from "@clerk/nextjs";
+import { SignInButton, UserButton } from '@clerk/nextjs'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchBar from "@/app/components/SearchBar"
 import {
@@ -13,10 +14,15 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Header() {
+  const {  isSignedIn } = useAuth()
   return (
+
     <>
-      <div className="header-top text-white flex justify-around gap-56">
-        <div className="flex items-center ml-40 gap-9 ">
+    {/* top bar  */}
+    <div className="w-full bg-[#7E33E0] ">
+      <div className="header-top text-white flex justify-between  w-[90%] mx-auto">
+      
+        <div className="flex items-center  gap-9 ">
           <p className="flex gap-3 items-center">
             <FontAwesomeIcon icon={faEnvelope} /> mhhasanul@gmail.com
           </p>
@@ -26,7 +32,10 @@ export default function Header() {
           </span>
         </div>
 
-        <div className="flex items-center text-sm mr-40 ">
+
+
+
+        <div className="flex items-center text-sm ">
           <ul className="flex items-center justify-evenly gap-3 ">
             <li className="relative group border-0 bg-[#7E33E0] text-white focus:outline-none  cursor-pointer font-semibold">
               English <FontAwesomeIcon icon={faAngleDown} />
@@ -50,19 +59,32 @@ export default function Header() {
                 </li>
               </ul>
             </li>
+         { !isSignedIn &&
+          (
+            
+            <SignInButton mode='modal'>
             <li className="cursor-pointer">
               Login <FontAwesomeIcon icon={faUser} />
             </li>
+            </SignInButton>
+          )
+         }
+            
             <li className="cursor-pointer">
               Wishlist <FontAwesomeIcon icon={faHeart} />
             </li>
+          
           </ul>
-        <Image src={"/cart.png"} alt={""} width={24} height={24} className="cursor-pointer"></Image>
+          <Link href={"/cart"}>
+        <Image src={"/cart.png"} alt={""} width={24} height={24} className="cursor-pointer ml-4 mr-4"></Image>
+          </Link>
+          <UserButton afterSwitchSessionUrl="/"/>
         </div>
+      </div>
       </div>
 
       <div className="min-h-20 bg-white w-full flex items-center">
-        <div className="min-h-10 w-[71%] m-auto flex justify-between gap-80 ">
+        <div className="min-h-10 w-[90%] m-auto flex justify-between gap-80 ">
           <div className="flex  gap-12 items-center">
             <Image src={"/logo.png"} alt={""} width={105} height={31} className="cursor-pointer"></Image>
             <ul className="flex items-center pt-4 gap-5 leading-5 menu">
@@ -81,7 +103,7 @@ export default function Header() {
               </li>
               <li>Blog</li>
               <Link href={"/shop"}><li>Shop</li></Link>
-              <li>Cart</li>
+              <Link href={"/cart"}>  <li>Cart</li></Link>
             </ul>
           </div>
          <SearchBar/>
