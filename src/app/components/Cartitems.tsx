@@ -27,7 +27,7 @@ export default function Cartitems() {
         const data = await res.json();
         setCartData(data);
 
-        // Initialize quantities based on fetched cart data
+      
       
       } catch (error) {
         console.error("Error fetching cart data:", error);
@@ -47,7 +47,7 @@ export default function Cartitems() {
     setQuantity(quantity-1);
   }
   async function deleteProduct(product_title:any){
-   const res = await fetch("/api/cart" ,{
+   const _res = await fetch("/api/cart" ,{
     method: "DELETE",
     body: JSON.stringify({
       user_id:  userId,
@@ -56,20 +56,21 @@ export default function Cartitems() {
    });
    setState(!state);
   }
- async function updateCart(cartquantity:number, title:any){
-    try {
-      await fetch(".api/cart" ,{
-        method : "PUT",
-        body:JSON.stringify({
-          product_quantity: cartquantity ,
-          user_id: userId  ,
-          product_title: title  ,
-        })
-      })
-    } catch (error) {
-      console.log("error updating cart",error)
-    }
-  }
+
+//  async function updateCart(cartquantity:number, title:any){
+//     try {
+//       await fetch(".api/cart" ,{
+//         method : "PUT",
+//         body:JSON.stringify({
+//           product_quantity: cartquantity ,
+//           user_id: userId  ,
+//           product_title: title  ,
+//         })
+//       })
+//     } catch (error) {
+//       console.log("error updating cart",error)
+//     }
+//   }
   
   if (loading) return <p>Loading...</p>;
   return (
