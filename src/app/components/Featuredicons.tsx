@@ -12,7 +12,7 @@ export default function Icons({ id, name, price, image}: AddToCartProps) {
   
   async function handleAddToCart() {
     try {
-      const _res = await fetch("/api/cart", {
+       await fetch("/api/cart", {
         method: "POST",
         body: JSON.stringify({
           user_id: "id",

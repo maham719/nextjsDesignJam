@@ -48,7 +48,7 @@ export const DELETE = async (request:NextRequest)=>{
   const req = await request.json()
 try {
 
-  const _res = await db.delete(cartdata).where(and(eq(cartdata.user_id,req.user_id), eq(cartdata.product_title,req.product_title))).returning();
+   await db.delete(cartdata).where(and(eq(cartdata.user_id,req.user_id), eq(cartdata.product_title,req.product_title))).returning();
 
 
   return NextResponse.json({message: 'Product Successfuflly Deleted'})
@@ -63,7 +63,7 @@ export const PUT = async (request:NextRequest)=>{
   const req = await request.json()
 try {
 
-  const _res = await db.update(cartdata).set({product_quantity:req.product_quantity}).where(and(eq(cartdata.user_id,req.user_id), eq(cartdata.product_title,req.product_title))).returning();
+   await db.update(cartdata).set({product_quantity:req.product_quantity}).where(and(eq(cartdata.user_id,req.user_id), eq(cartdata.product_title,req.product_title))).returning();
 
  
   return NextResponse.json({message: 'Quantity Successfuflly updated'})

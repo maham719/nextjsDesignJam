@@ -1,5 +1,4 @@
 "use client";
-import React, { useState } from "react";
 import "remixicon/fonts/remixicon.css";
 import { useAuth } from "@clerk/nextjs";
 import {Bounce, toast} from 'react-toastify';
@@ -24,7 +23,7 @@ export default function Addtocart({ id, name, price, image }: AddToCartProps) {
 
    
 
-      const response = await toast.promise(
+       await toast.promise(
 
         fetch("/api/cart", {
           method: "POST",

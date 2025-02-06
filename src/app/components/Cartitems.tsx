@@ -47,7 +47,7 @@ export default function Cartitems() {
     setQuantity(quantity-1);
   }
   async function deleteProduct(product_title:any){
-   const _res = await fetch("/api/cart" ,{
+    await fetch("/api/cart" ,{
     method: "DELETE",
     body: JSON.stringify({
       user_id:  userId,
