@@ -17,7 +17,11 @@ import { client } from '@/sanity/lib/client';
 //   products:Products[],
 // }
 export default function FeaturedCard() {
-  
+  onst [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
    const [products, setProducts] = useState<Products[]>([]);
 
    useEffect(() => {
