@@ -11,25 +11,21 @@ type AddToCartProps = {
 };
 
 export default function Addtocart({ id, name, price, image }: AddToCartProps) {
-  const { userId } = useAuth()
 
-  // const [quantity, setQuantity] = useState(1);
 
-  // const incrementQuantity = () => {
-  //   setQuantity((prevQuantity) => prevQuantity + 1);
-  // };
+  const {userId} = useAuth()
 
-  // const decrementQuantity = () => {
-  //   if (quantity > 1) {
-  //     setQuantity((prevQuantity) => prevQuantity - 1);
-  //   }
-  // };
+
 
   // Function to handle adding to the cart
 
   async function handleAddToCart() {
     try {
-      const _response = await toast.promise(
+
+   
+
+      const response = await toast.promise(
+
         fetch("/api/cart", {
           method: "POST",
           body: JSON.stringify({

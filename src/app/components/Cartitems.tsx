@@ -144,12 +144,7 @@ export default function Cartitems() {
             </div>
           </div>
 
-          {/* Calculate Shipping */}
-          {/* <div className="w-[371px] h-[300px] bg-blue-700 p-6">
-            <h2 className="text-xl text-[#1D3178] font-bold">
-              Calculate Shipping
-            </h2>
-          </div> */}
+      
         </div>
       </div>
 
