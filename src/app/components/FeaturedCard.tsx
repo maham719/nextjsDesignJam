@@ -51,7 +51,7 @@ export default function FeaturedCard() {
         340:{
           slidesPerView:2,
           slidesPerGroup: 2,
-          spaceBetween:15,
+          spaceBetween:5,
         },
         700:{
           slidesPerView:4,
@@ -70,7 +70,7 @@ export default function FeaturedCard() {
       
       }}
       modules={[FreeMode,Pagination]}
-      className='max-w-full  lg:max-w-[94%] flex gap-2 min-h-[500px] items-center relative mx-auto justify-center bg-transparent featured-card ' 
+      className='max-w-full  lg:max-w-[80%] flex gap-2 min-h-[500px] items-center relative mx-auto justify-center bg-transparent featured-card ' 
       >
         { products.map((items:Products)=>{
           return (
