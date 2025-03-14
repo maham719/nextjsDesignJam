@@ -70,7 +70,7 @@ export default function FeaturedCard() {
       
       }}
       modules={[FreeMode,Pagination]}
-      className='max-w-full  lg:max-w-[80%] flex gap-2 min-h-[500px] items-center relative mx-auto justify-center bg-transparent featured-card ' 
+      className='max-w-full  lg:max-w-[90%] flex gap-2 min-h-[500px] items-center relative mx-auto justify-center bg-transparent featured-card ' 
       >
         { products.map((items:Products)=>{
           return (
