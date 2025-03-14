@@ -59,7 +59,7 @@ export default function FeaturedCard() {
           slidesPerGroup: 4,
         }
       }}
-      spaceBetween={0}
+      spaceBetween={10}
       freeMode={true}
       navigation
       grabCursor={true}
